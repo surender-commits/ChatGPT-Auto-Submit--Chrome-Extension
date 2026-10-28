@@ -1,0 +1,37 @@
+{
+    "name": "ChatGPT_Auto_Submit",
+    "description": "Click to Enable and Disable.",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "icons": {
+        "16": "icon.png",
+        "32": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "host_permissions": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://chatgpt.com/*",
+                "https://chat.openai.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "action": {
+        "default_title": "ChatGPT Auto Submit"
+    }
+}
